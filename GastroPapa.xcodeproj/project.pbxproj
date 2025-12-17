@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		EBFBA8EC2EF2C05200CBAF43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBFBA8CD2EF2C05000CBAF43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBFBA8D42EF2C05000CBAF43;
+			remoteInfo = GastroPapa;
+		};
+		EBFBA8F62EF2C05200CBAF43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBFBA8CD2EF2C05000CBAF43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBFBA8D42EF2C05000CBAF43;
+			remoteInfo = GastroPapa;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EBFBA8D52EF2C05000CBAF43 /* GastroPapa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GastroPapa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBFBA8EB2EF2C05200CBAF43 /* GastroPapaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GastroPapaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBFBA8F52EF2C05200CBAF43 /* GastroPapaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GastroPapaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EBFBA8FD2EF2C05200CBAF43 /* Exceptions for "GastroPapa" folder in "GastroPapa" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EBFBA8D42EF2C05000CBAF43 /* GastroPapa */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EBFBA8D72EF2C05000CBAF43 /* GastroPapa */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EBFBA8FD2EF2C05200CBAF43 /* Exceptions for "GastroPapa" folder in "GastroPapa" target */,
+			);
+			path = GastroPapa;
+			sourceTree = "<group>";
+		};
+		EBFBA8EE2EF2C05200CBAF43 /* GastroPapaTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GastroPapaTests;
+			sourceTree = "<group>";
+		};
+		EBFBA8F82EF2C05200CBAF43 /* GastroPapaUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GastroPapaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBFBA8D22EF2C05000CBAF43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBFBA8E82EF2C05200CBAF43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBFBA8F22EF2C05200CBAF43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EBFBA8CC2EF2C05000CBAF43 = {
+			isa = PBXGroup;
+			children = (
+				EBFBA8D72EF2C05000CBAF43 /* GastroPapa */,
+				EBFBA8EE2EF2C05200CBAF43 /* GastroPapaTests */,
+				EBFBA8F82EF2C05200CBAF43 /* GastroPapaUITests */,
+				EBFBA8D62EF2C05000CBAF43 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EBFBA8D62EF2C05000CBAF43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBFBA8D52EF2C05000CBAF43 /* GastroPapa.app */,
+				EBFBA8EB2EF2C05200CBAF43 /* GastroPapaTests.xctest */,
+				EBFBA8F52EF2C05200CBAF43 /* GastroPapaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EBFBA8D42EF2C05000CBAF43 /* GastroPapa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBFBA8FE2EF2C05200CBAF43 /* Build configuration list for PBXNativeTarget "GastroPapa" */;
+			buildPhases = (
+				EBFBA8D12EF2C05000CBAF43 /* Sources */,
+				EBFBA8D22EF2C05000CBAF43 /* Frameworks */,
+				EBFBA8D32EF2C05000CBAF43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EBFBA8D72EF2C05000CBAF43 /* GastroPapa */,
+			);
+			name = GastroPapa;
+			packageProductDependencies = (
+			);
+			productName = GastroPapa;
+			productReference = EBFBA8D52EF2C05000CBAF43 /* GastroPapa.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EBFBA8EA2EF2C05200CBAF43 /* GastroPapaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBFBA9032EF2C05200CBAF43 /* Build configuration list for PBXNativeTarget "GastroPapaTests" */;
+			buildPhases = (
+				EBFBA8E72EF2C05200CBAF43 /* Sources */,
+				EBFBA8E82EF2C05200CBAF43 /* Frameworks */,
+				EBFBA8E92EF2C05200CBAF43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBFBA8ED2EF2C05200CBAF43 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EBFBA8EE2EF2C05200CBAF43 /* GastroPapaTests */,
+			);
+			name = GastroPapaTests;
+			packageProductDependencies = (
+			);
+			productName = GastroPapaTests;
+			productReference = EBFBA8EB2EF2C05200CBAF43 /* GastroPapaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EBFBA8F42EF2C05200CBAF43 /* GastroPapaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBFBA9062EF2C05200CBAF43 /* Build configuration list for PBXNativeTarget "GastroPapaUITests" */;
+			buildPhases = (
+				EBFBA8F12EF2C05200CBAF43 /* Sources */,
+				EBFBA8F22EF2C05200CBAF43 /* Frameworks */,
+				EBFBA8F32EF2C05200CBAF43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBFBA8F72EF2C05200CBAF43 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EBFBA8F82EF2C05200CBAF43 /* GastroPapaUITests */,
+			);
+			name = GastroPapaUITests;
+			packageProductDependencies = (
+			);
+			productName = GastroPapaUITests;
+			productReference = EBFBA8F52EF2C05200CBAF43 /* GastroPapaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBFBA8CD2EF2C05000CBAF43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					EBFBA8D42EF2C05000CBAF43 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					EBFBA8EA2EF2C05200CBAF43 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = EBFBA8D42EF2C05000CBAF43;
+					};
+					EBFBA8F42EF2C05200CBAF43 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = EBFBA8D42EF2C05000CBAF43;
+					};
+				};
+			};
+			buildConfigurationList = EBFBA8D02EF2C05000CBAF43 /* Build configuration list for PBXProject "GastroPapa" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EBFBA8CC2EF2C05000CBAF43;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EBFBA8D62EF2C05000CBAF43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EBFBA8D42EF2C05000CBAF43 /* GastroPapa */,
+				EBFBA8EA2EF2C05200CBAF43 /* GastroPapaTests */,
+				EBFBA8F42EF2C05200CBAF43 /* GastroPapaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EBFBA8D32EF2C05000CBAF43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBFBA8E92EF2C05200CBAF43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBFBA8F32EF2C05200CBAF43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EBFBA8D12EF2C05000CBAF43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBFBA8E72EF2C05200CBAF43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBFBA8F12EF2C05200CBAF43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EBFBA8ED2EF2C05200CBAF43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBFBA8D42EF2C05000CBAF43 /* GastroPapa */;
+			targetProxy = EBFBA8EC2EF2C05200CBAF43 /* PBXContainerItemProxy */;
+		};
+		EBFBA8F72EF2C05200CBAF43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBFBA8D42EF2C05000CBAF43 /* GastroPapa */;
+			targetProxy = EBFBA8F62EF2C05200CBAF43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EBFBA8FF2EF2C05200CBAF43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27577TPKK6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GastroPapa/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.GastroPapa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EBFBA9002EF2C05200CBAF43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27577TPKK6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GastroPapa/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.GastroPapa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EBFBA9012EF2C05200CBAF43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 27577TPKK6;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EBFBA9022EF2C05200CBAF43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 27577TPKK6;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EBFBA9042EF2C05200CBAF43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27577TPKK6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.GastroPapaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GastroPapa.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GastroPapa";
+			};
+			name = Debug;
+		};
+		EBFBA9052EF2C05200CBAF43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27577TPKK6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.GastroPapaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GastroPapa.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GastroPapa";
+			};
+			name = Release;
+		};
+		EBFBA9072EF2C05200CBAF43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27577TPKK6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.GastroPapaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GastroPapa;
+			};
+			name = Debug;
+		};
+		EBFBA9082EF2C05200CBAF43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27577TPKK6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.GastroPapaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GastroPapa;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EBFBA8D02EF2C05000CBAF43 /* Build configuration list for PBXProject "GastroPapa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBFBA9012EF2C05200CBAF43 /* Debug */,
+				EBFBA9022EF2C05200CBAF43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBFBA8FE2EF2C05200CBAF43 /* Build configuration list for PBXNativeTarget "GastroPapa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBFBA8FF2EF2C05200CBAF43 /* Debug */,
+				EBFBA9002EF2C05200CBAF43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBFBA9032EF2C05200CBAF43 /* Build configuration list for PBXNativeTarget "GastroPapaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBFBA9042EF2C05200CBAF43 /* Debug */,
+				EBFBA9052EF2C05200CBAF43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBFBA9062EF2C05200CBAF43 /* Build configuration list for PBXNativeTarget "GastroPapaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBFBA9072EF2C05200CBAF43 /* Debug */,
+				EBFBA9082EF2C05200CBAF43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBFBA8CD2EF2C05000CBAF43 /* Project object */;
+}
