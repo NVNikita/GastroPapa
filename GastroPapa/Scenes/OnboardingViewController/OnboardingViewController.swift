@@ -123,6 +123,16 @@ final class OnboardingViewController: UIViewController {
     
     private lazy var skipButton: UIButton = {
         let button = UIButton(type: .system)
+        let attributedTitle = NSAttributedString(
+            string: "Я просто посмотреть",
+            attributes: [
+                .font: UIFont.sfSemibold17,
+                .foregroundColor: UIColor.white,
+                .underlineStyle: NSUnderlineStyle.single.rawValue
+            ]
+        )
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(skipButtonTap), for: .touchUpInside)
         return button
     }()
     
@@ -141,21 +151,17 @@ final class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupTextFields()
         activateConstarints()
-        
-        nameTextField.delegate = self
-        emailTextField.delegate = self
-        
-        nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     private func setupUI() {
-        view.backgroundColor = .grayBacground
+        view.backgroundColor = .grayBackground
         
         view.addSubview(topStackView)
         view.addSubview(nameStackView)
         view.addSubview(emailStackView)
+        view.addSubview(skipButton)
         view.addSubview(loginButton)
         
         topStackView.addSubview(logoImageView)
@@ -177,9 +183,18 @@ final class OnboardingViewController: UIViewController {
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         
+        skipButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.isEnabled = false
         loginButton.alpha = 0.5
+    }
+    
+    private func setupTextFields() {
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        
+        nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     private func activateConstarints() {
@@ -222,6 +237,12 @@ final class OnboardingViewController: UIViewController {
             loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             loginButton.heightAnchor.constraint(equalToConstant: 70),
             
+            skipButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            skipButton.topAnchor.constraint(equalTo: emailStackView.bottomAnchor, constant: 40),
+            skipButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            skipButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            skipButton.heightAnchor.constraint(equalToConstant: 44),
+            
             nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 9),
             nameTextField.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor),
             nameTextField.trailingAnchor.constraint(equalTo: nameStackView.trailingAnchor),
@@ -263,6 +284,11 @@ final class OnboardingViewController: UIViewController {
     
     @objc
     private func loginButtonTap() {
+        
+    }
+    
+    @objc
+    private func skipButtonTap() {
         
     }
     

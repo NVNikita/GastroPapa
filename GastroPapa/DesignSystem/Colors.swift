@@ -31,5 +31,5 @@ extension UIColor {
         )
     }
     
-    static let grayBacground = UIColor(hexString: "#505050")
+    static let grayBackground = UIColor(hexString: "#505050")
 }
