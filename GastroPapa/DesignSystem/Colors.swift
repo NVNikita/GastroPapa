@@ -32,4 +32,5 @@ extension UIColor {
     }
     
     static let grayBackground = UIColor(hexString: "#505050")
+    static let redForTabBar = UIColor(hexString: "#aa0000")
 }
