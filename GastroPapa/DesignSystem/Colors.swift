@@ -30,4 +30,6 @@ extension UIColor {
             alpha: CGFloat(alpha) / 255
         )
     }
+    
+    static let grayBacground = UIColor(hexString: "#505050")
 }
