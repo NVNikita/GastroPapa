@@ -142,6 +142,12 @@ final class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         activateConstarints()
+        
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        
+        nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     private func setupUI() {
@@ -166,11 +172,14 @@ final class OnboardingViewController: UIViewController {
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         labelTopStackView.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.isEnabled = false
+        loginButton.alpha = 0.5
     }
     
     private func activateConstarints() {
@@ -225,8 +234,81 @@ final class OnboardingViewController: UIViewController {
         ])
     }
     
+    private func isValidName(_ name: String) -> Bool {
+        let trimmedName = name.trimmingCharacters(in: .whitespaces)
+        if trimmedName.isEmpty || trimmedName.count < 2 { return false }
+        let nameRegEx = "^[a-zA-Zа-яА-ЯёЁ\\s]+$"
+        let namePred = NSPredicate(format: "SELF MATCHES %@", nameRegEx)
+        return namePred.evaluate(with: trimmedName)
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {
+        let trimmedEmail = email.trimmingCharacters(in: .whitespaces)
+        if trimmedEmail.isEmpty { return false }
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: trimmedEmail)
+    }
+    
+    private func updateLoginButtonState() {
+        let name = nameTextField.text ?? ""
+        let email = emailTextField.text ?? ""
+        
+        let IsNameValid = isValidName(name)
+        let IsEmailValid = isValidEmail(email)
+        
+        loginButton.isEnabled = IsNameValid && IsEmailValid
+        loginButton.alpha = (IsNameValid && IsEmailValid) ? 1.0 : 0.5
+    }
+    
     @objc
     private func loginButtonTap() {
         
+    }
+    
+    @objc
+    private func textFieldDidChange(_ textField: UITextField) {
+        // обновляем цвет линии при каждом изменении текста
+        updateLineColor(for: textField)
+        updateLoginButtonState()
+    }
+
+    private func updateLineColor(for textField: UITextField) {
+        let text = textField.text ?? ""
+        let bottomLine = textField.subviews.first { $0.backgroundColor == .white || $0.backgroundColor == .red || $0.backgroundColor == .green }
+        
+        if text.isEmpty {
+            bottomLine?.backgroundColor = .white
+        } else {
+            let isValid = textField == nameTextField ?
+                isValidName(text) : isValidEmail(text)
+            bottomLine?.backgroundColor = isValid ? .green : .red
+        }
+    }
+}
+
+extension OnboardingViewController: UITextFieldDelegate  {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // при завершении редактирования проверяем и показываем ошибки
+        updateLineColor(for: textField)
+        updateLoginButtonState()
+
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // валидация по мере ввода
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.updateLoginButtonState()
+        }
+        return true
     }
 }
