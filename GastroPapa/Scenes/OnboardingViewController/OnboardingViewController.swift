@@ -9,6 +9,20 @@ import UIKit
 
 final class OnboardingViewController: UIViewController {
     
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .clear
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.keyboardDismissMode = .interactive
+        return scrollView
+    }()
+    
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     private lazy var topStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -148,21 +162,38 @@ final class OnboardingViewController: UIViewController {
         return button
     }()
     
+    private var keyboardHeight: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupTextFields()
+        setupTapGesture()
         activateConstarints()
+        setupKeyboardObservers()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupUI() {
         view.backgroundColor = .grayBackground
         
+        // Добавляем scrollView на весь экран
+        view.addSubview(scrollView)
+        
+        // Добавляем contentView внутрь scrollView
+        scrollView.addSubview(contentView)
+        
+        // Фиксированные элементы (верхняя панель и кнопка входа) добавляем на view
         view.addSubview(topStackView)
-        view.addSubview(nameStackView)
-        view.addSubview(emailStackView)
-        view.addSubview(skipButton)
         view.addSubview(loginButton)
+        
+        // Все остальные элементы добавляем в contentView (внутри скролл-вью)
+        contentView.addSubview(nameStackView)
+        contentView.addSubview(emailStackView)
+        contentView.addSubview(skipButton)
         
         topStackView.addSubview(logoImageView)
         topStackView.addSubview(labelTopStackView)
@@ -172,6 +203,9 @@ final class OnboardingViewController: UIViewController {
         emailStackView.addSubview(emailLabel)
         emailStackView.addSubview(emailTextField)
         
+        // Активируем constraints
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         nameStackView.translatesAutoresizingMaskIntoConstraints = false
         emailStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -197,8 +231,41 @@ final class OnboardingViewController: UIViewController {
         emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
+    private func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    private func setupKeyboardObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
     private func activateConstarints() {
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
             topStackView.topAnchor.constraint(equalTo: view.topAnchor),
             topStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -212,15 +279,27 @@ final class OnboardingViewController: UIViewController {
             labelTopStackView.centerXAnchor.constraint(equalTo: topStackView.centerXAnchor),
             labelTopStackView.bottomAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: -15),
             
-            nameStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            nameStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            nameStackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 64),
+            nameStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 50),
+            nameStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
+            nameStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 382 + 64), // 382 (высота topStackView) + 64 (отступ)
             nameStackView.heightAnchor.constraint(equalToConstant: 59),
             
             emailStackView.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor),
             emailStackView.trailingAnchor.constraint(equalTo: nameStackView.trailingAnchor),
             emailStackView.heightAnchor.constraint(equalToConstant: 59),
             emailStackView.topAnchor.constraint(equalTo: nameStackView.bottomAnchor, constant: 46),
+            
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            loginButton.heightAnchor.constraint(equalToConstant: 70),
+            
+            skipButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            skipButton.topAnchor.constraint(equalTo: emailStackView.bottomAnchor, constant: 40),
+            skipButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 50),
+            skipButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
+            skipButton.heightAnchor.constraint(equalToConstant: 44),
+            skipButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             
             nameLabel.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor),
             nameLabel.topAnchor.constraint(equalTo: nameStackView.topAnchor),
@@ -231,17 +310,6 @@ final class OnboardingViewController: UIViewController {
             emailLabel.topAnchor.constraint(equalTo: emailStackView.topAnchor),
             emailLabel.trailingAnchor.constraint(equalTo: emailStackView.trailingAnchor, constant: 211),
             emailLabel.heightAnchor.constraint(equalToConstant: 18),
-            
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-            loginButton.heightAnchor.constraint(equalToConstant: 70),
-            
-            skipButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            skipButton.topAnchor.constraint(equalTo: emailStackView.bottomAnchor, constant: 40),
-            skipButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            skipButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            skipButton.heightAnchor.constraint(equalToConstant: 44),
             
             nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 9),
             nameTextField.leadingAnchor.constraint(equalTo: nameStackView.leadingAnchor),
@@ -323,6 +391,53 @@ final class OnboardingViewController: UIViewController {
             bottomLine?.backgroundColor = isValid ? .green : .red
         }
     }
+    
+    @objc
+    private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+              let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else {
+            return
+        }
+        
+        keyboardHeight = keyboardFrame.height
+        
+        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight + 20, right: 0)
+        
+        UIView.animate(withDuration: duration) {
+            self.scrollView.contentInset = contentInset
+            self.scrollView.scrollIndicatorInsets = contentInset
+            
+            if let activeTextField = [self.nameTextField, self.emailTextField].first(where: { $0.isFirstResponder }) {
+                let textFieldFrameInScrollView = activeTextField.convert(activeTextField.bounds, to: self.scrollView)
+                let visibleRect = CGRect(x: 0,
+                                       y: textFieldFrameInScrollView.origin.y - 20,
+                                       width: 1,
+                                       height: textFieldFrameInScrollView.height + 40)
+                self.scrollView.scrollRectToVisible(visibleRect, animated: true)
+            }
+        }
+    }
+    
+    @objc
+    private func keyboardWillHide(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else {
+            return
+        }
+        
+        UIView.animate(withDuration: duration) {
+            self.scrollView.contentInset = .zero
+            self.scrollView.scrollIndicatorInsets = .zero
+        }
+        
+        keyboardHeight = 0
+    }
+    
+    @objc
+    private func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 extension OnboardingViewController: UITextFieldDelegate  {
@@ -339,7 +454,6 @@ extension OnboardingViewController: UITextFieldDelegate  {
         // при завершении редактирования проверяем и показываем ошибки
         updateLineColor(for: textField)
         updateLoginButtonState()
-
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
