@@ -10,14 +10,8 @@ import UIKit
 struct OrderModel {
     let id: UUID
     let date: Date
-    let items: [CartItem]
+    let items: CartModel
     let totalPrice: Double
     let adress: String?
     let status: String
-    
-    struct CartItem: Codable {
-        let menuItemId: Int
-        let quantity: Int
-        let pricePerItem: Double
-    }
 }
