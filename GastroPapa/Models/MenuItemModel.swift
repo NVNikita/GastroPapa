@@ -13,7 +13,6 @@ struct MenuItemModel {
     let description: String
     let imageName: String
     let price: Double
-    let category: String
     
     var image: UIImage? {
         return UIImage(named: imageName)

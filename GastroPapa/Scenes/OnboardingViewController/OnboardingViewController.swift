@@ -289,7 +289,19 @@ final class OnboardingViewController: UIViewController {
     
     @objc
     private func skipButtonTap() {
+        let tabVC = TabBarController()
         
+        if let window = view.window {
+            UIView.transition(
+                with: window,
+                duration: 0.3,
+                options: .transitionCrossDissolve,
+                animations: {
+                    window.rootViewController = tabVC
+            }, completion: nil)
+        } else {
+            return
+        }
     }
     
     @objc
