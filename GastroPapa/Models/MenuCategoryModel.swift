@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MenuCategoryModel {
+struct MenuCategoryModel: Decodable {
     let id: Int
     let name: String
     let dishes: [MenuItemModel]
