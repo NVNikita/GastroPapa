@@ -57,7 +57,6 @@ final class TabBarController: UITabBarController {
             selectedImage: UIImage(systemName: selectedImageName))
         
         navigationController.tabBarItem = tabBarItem
-        navigationController.navigationBar.prefersLargeTitles = true
         rootViewController.navigationItem.title = title
         
         return navigationController

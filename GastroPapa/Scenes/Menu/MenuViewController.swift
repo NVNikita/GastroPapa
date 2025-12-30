@@ -14,6 +14,7 @@ final class MenuViewController: UIViewController {
         button.setImage(UIImage(systemName: "cart"), for: .normal)
         button.backgroundColor = .clear
         button.tintColor = .white
+        button.backgroundColor = .red
         button.addTarget(self, action: #selector(cartButtonTap), for: .touchUpInside)
         return button
     }()
@@ -23,6 +24,7 @@ final class MenuViewController: UIViewController {
         button.setImage(UIImage(systemName: "phone"), for: .normal)
         button.backgroundColor = .clear
         button.tintColor = .white
+        button.backgroundColor = .red
         button.addTarget(self, action: #selector(callButtonTap), for: .touchUpInside)
         return button
     }()
@@ -63,16 +65,26 @@ final class MenuViewController: UIViewController {
         setupUI()
         activateConstraints()
         setupCollections()
+        print("Запустились и работаем")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("Safe area insets: \(view.safeAreaInsets)")
+        print("Layout margins: \(view.layoutMargins)")
+        print("Cart button frame: \(cartButton.frame)")
+        print("Cart button bounds: \(cartButton.bounds)")
+        print("Is cart button in view bounds: \(view.bounds.contains(cartButton.frame))")
     }
     
     private func setupUI() {
         view.backgroundColor = .grayBackground
         
-        view.addSubview(cartButton)
-        view.addSubview(callButton)
         view.addSubview(customTitleVC)
         view.addSubview(searchTextField)
         view.addSubview(menuCollectionView)
+        view.addSubview(cartButton)
+        view.addSubview(callButton)
         
         cartButton.translatesAutoresizingMaskIntoConstraints = false
         callButton.translatesAutoresizingMaskIntoConstraints = false
@@ -92,10 +104,12 @@ final class MenuViewController: UIViewController {
             cartButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -41),
             cartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 65),
             cartButton.heightAnchor.constraint(equalToConstant: 44),
+            cartButton.widthAnchor.constraint(equalToConstant: 44),
             
             callButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 65),
             callButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 41),
             callButton.heightAnchor.constraint(equalToConstant: 44),
+            callButton.widthAnchor.constraint(equalToConstant: 44),
             
             customTitleVC.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             customTitleVC.topAnchor.constraint(equalTo: view.topAnchor, constant: 112),
@@ -114,14 +128,15 @@ final class MenuViewController: UIViewController {
         ])
     }
     
-    @objc
-    private func cartButtonTap() {
-        
+    @objc private func cartButtonTap() {
+        print("cart button tap")
+        let cartVC = CartViewController()
+        cartVC.modalPresentationStyle = .fullScreen
+        present(cartVC, animated: true)
     }
     
-    @objc
-    private func callButtonTap() {
-        
+    @objc private func callButtonTap() {
+        print("call button tap")
     }
 }
 
