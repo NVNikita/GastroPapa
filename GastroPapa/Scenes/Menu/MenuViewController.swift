@@ -14,7 +14,6 @@ final class MenuViewController: UIViewController {
         button.setImage(UIImage(systemName: "cart"), for: .normal)
         button.backgroundColor = .clear
         button.tintColor = .white
-        button.backgroundColor = .red
         button.addTarget(self, action: #selector(cartButtonTap), for: .touchUpInside)
         return button
     }()
@@ -24,7 +23,6 @@ final class MenuViewController: UIViewController {
         button.setImage(UIImage(systemName: "phone"), for: .normal)
         button.backgroundColor = .clear
         button.tintColor = .white
-        button.backgroundColor = .red
         button.addTarget(self, action: #selector(callButtonTap), for: .touchUpInside)
         return button
     }()
@@ -60,14 +58,20 @@ final class MenuViewController: UIViewController {
         return searchTextField
     }()
     
+    private let menuDataService = MenuDataService()
+    private lazy var allDishes: [MenuItemModel] = []
+    private lazy var menuCategories: [MenuCategoryModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         activateConstraints()
         setupCollections()
         print("Запустились и работаем")
+        loadDataCells()
     }
     
+    //TODO: delete func
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         print("Safe area insets: \(view.safeAreaInsets)")
@@ -75,6 +79,14 @@ final class MenuViewController: UIViewController {
         print("Cart button frame: \(cartButton.frame)")
         print("Cart button bounds: \(cartButton.bounds)")
         print("Is cart button in view bounds: \(view.bounds.contains(cartButton.frame))")
+    }
+    
+    private func loadDataCells() {
+        menuCategories = menuDataService.loadMenu()
+        allDishes = menuCategories.flatMap { $0.dishes }
+        print("✅ Загружено \(menuCategories.count) категорий")
+        print("🍽 Всего блюд: \(allDishes.count)")
+        print("First item: \(String(describing: allDishes.first))")
     }
     
     private func setupUI() {
@@ -142,13 +154,16 @@ final class MenuViewController: UIViewController {
 
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
+        allDishes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dishCell", for: indexPath) as? DishCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
+        let dish = allDishes[indexPath.item]
+        cell.configure(with: dish)
         
         return cell
     }
@@ -164,6 +179,6 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
     }
 }

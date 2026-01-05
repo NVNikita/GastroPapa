@@ -21,7 +21,6 @@ final class DishCollectionViewCell: UICollectionViewCell {
     
     private lazy var dishImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .breakfastCasserole)
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 85
         imageView.clipsToBounds = true
@@ -31,8 +30,7 @@ final class DishCollectionViewCell: UICollectionViewCell {
     
     private lazy var nameDish: UILabel = {
         let label = UILabel()
-        label.text = "Папарделли с щечками"
-        label.font = .systemFont(ofSize: 22, weight: .bold)
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = .black
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -41,7 +39,6 @@ final class DishCollectionViewCell: UICollectionViewCell {
     
     private lazy var priceDish: UILabel = {
         let label = UILabel()
-        label.text = "1200 P"
         label.font = .systemFont(ofSize: 17, weight: .bold)
         label.textColor = .systemOrange
         label.numberOfLines = 0
@@ -86,16 +83,22 @@ final class DishCollectionViewCell: UICollectionViewCell {
             
             priceDish.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             priceDish.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            priceDish.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -29),
+            priceDish.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             
             nameDish.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             nameDish.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            nameDish.bottomAnchor.constraint(equalTo: priceDish.topAnchor, constant: -15),
+            nameDish.bottomAnchor.constraint(equalTo: priceDish.topAnchor, constant: -10),
             
             dishImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             dishImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             dishImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             dishImageView.heightAnchor.constraint(equalTo: dishImageView.widthAnchor)
         ])
+    }
+    
+    func configure(with dish: MenuItemModel) {
+        self.nameDish.text = dish.name
+        self.priceDish.text = String("\(dish.price) ₽")
+        self.dishImageView.image = UIImage(named: dish.imageName)
     }
 }
