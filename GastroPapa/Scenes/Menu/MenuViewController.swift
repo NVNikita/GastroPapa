@@ -39,7 +39,7 @@ final class MenuViewController: UIViewController {
     
     private lazy var customTitleVC: UILabel = {
         let label = UILabel()
-        label.text = "Вкусная еда\nдля тебя"
+        label.text = "Вкусная\nеда\nдля тебя"
         label.font = UIFont.sfBold32
         label.textColor = UIColor.white
         label.textAlignment = .left
@@ -171,7 +171,9 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 220, height: 320)
+        let height = collectionView.frame.height
+        let width = (collectionView.frame.width - 34) * 0.6
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -179,6 +181,6 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+        return UIEdgeInsets(top: 0, left: 34, bottom: 0, right: 34)
     }
 }

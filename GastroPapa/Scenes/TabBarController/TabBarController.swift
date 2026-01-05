@@ -23,7 +23,7 @@ final class TabBarController: UITabBarController {
             appearance.shadowColor = UIColor.clear
             
             // цвет выбранной иконки
-            appearance.stackedLayoutAppearance.selected.iconColor = .redForTabBar
+            appearance.stackedLayoutAppearance.selected.iconColor = .orangeCustom
             
             // цвет невыбранной иконки
             appearance.stackedLayoutAppearance.normal.iconColor = .white
@@ -35,7 +35,7 @@ final class TabBarController: UITabBarController {
             tabBar.scrollEdgeAppearance = appearance
         } else {
             // для iOS 14 и ниже
-            tabBar.tintColor = .redForTabBar
+            tabBar.tintColor = .orangeCustom
             tabBar.unselectedItemTintColor = .white
             tabBar.backgroundColor = .clear
         }

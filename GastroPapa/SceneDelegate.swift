@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        window.rootViewController = MenuViewController()
+        window.rootViewController = OnboardingViewController()
         window.makeKeyAndVisible()
     }
 
