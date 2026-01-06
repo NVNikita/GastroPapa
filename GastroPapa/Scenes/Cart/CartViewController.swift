@@ -51,10 +51,13 @@ final class CartViewController: UIViewController {
         return label
     }()
     
+    let countCells: Int = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         activateConsraints()
+        setupTableView()
     }
     
     private func setupUI() {
@@ -63,17 +66,20 @@ final class CartViewController: UIViewController {
         view.addSubview(placeholderImageView)
         view.addSubview(placeholderLabel)
         view.addSubview(completedButton)
+        view.addSubview(cartTableView)
         
-        placeholderImageView.translatesAutoresizingMaskIntoConstraints = false
-        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        //placeholderImageView.translatesAutoresizingMaskIntoConstraints = false
+        //placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
         completedButton.translatesAutoresizingMaskIntoConstraints = false
+        cartTableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupTableView() {
         cartTableView.delegate = self
         cartTableView.dataSource = self
+        cartTableView.backgroundColor = .clear
         
-        cartTableView.register(UITableViewCell.self, forCellReuseIdentifier: "itemCartCell")
+        cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: "itemCartCell")
     }
     
     private func activateConsraints() {
@@ -89,7 +95,13 @@ final class CartViewController: UIViewController {
             completedButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
             completedButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             completedButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -41),
-            completedButton.heightAnchor.constraint(equalToConstant: 70)
+            completedButton.heightAnchor.constraint(equalToConstant: 70),
+            
+            cartTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            cartTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            cartTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            cartTableView.bottomAnchor.constraint(equalTo: completedButton.topAnchor, constant: -50),
+            cartTableView.heightAnchor.constraint(equalToConstant: CGFloat(countCells * 102))
         ])
     }
     
@@ -104,11 +116,22 @@ final class CartViewController: UIViewController {
 
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        countCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCartCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCartCell", for: indexPath)
+                as? CartTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.dishImageView.image = UIImage(resource: .burgersPapaBeef)
+        cell.nameDishLabel.text = "Breakfast Casserole"
+        cell.priceDishlabel.text = "$12.99"
+        cell.backgroundColor = .white
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = true
+        
         return cell
     }
     
